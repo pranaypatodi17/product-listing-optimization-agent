@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Listwise — AI Product Listing Optimization Agent</title>
+<meta name="description" content="Listwise audits your Amazon and Shopify listings, mines reviews, tracks competitors and search trends, and rewrites your content so it keeps converting.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%234f46e5'/><path d='M9 17l5 5 9-12' stroke='white' stroke-width='3' fill='none' stroke-linecap='round' stroke-linejoin='round'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="nav" id="nav">
+  <div class="wrap nav-in">
+    <a href="#top" class="brand"><span class="logo"><svg viewBox="0 0 32 32" width="22" height="22"><path d="M9 17l5 5 9-12" stroke="#fff" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Listwise</a>
+    <nav class="links" id="links">
+      <a href="#product">Product</a>
+      <a href="#demo">Live demo</a>
+      <a href="#dashboard">Dashboard</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <div class="nav-cta">
+      <button class="btn ghost" data-open="signin">Sign in</button>
+      <button class="btn primary" data-open="trial">Start free trial</button>
+      <button class="burger" id="burger" aria-label="Menu"><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <span class="pill"><i class="dot"></i> New · Weekly auto-optimization for Amazon &amp; Shopify</span>
+      <h1>Listings that <span class="grad">keep getting better</span> on their own.</h1>
+      <p class="lead">Listwise is the AI agent that audits every product page, learns from customer reviews, watches competitors and search trends, then rewrites your titles, descriptions and highlights — and tracks what actually moved sales.</p>
+      <form class="hero-form" id="heroForm">
+        <input type="url" id="heroUrl" placeholder="Paste an Amazon or Shopify product URL" aria-label="Product URL" required>
+        <button class="btn primary lg" type="submit">Analyze my listing</button>
+      </form>
+      <ul class="ticks"><li>14-day free trial</li><li>No credit card</li><li>Works with Amazon · Shopify · WooCommerce</li></ul>
+    </div>
+    <div class="hero-visual" aria-hidden="true">
+      <div class="float-card c1">
+        <small>Listing score</small>
+        <div class="ring mini" style="--v:92"><b>92</b></div>
+        <em class="up">▲ +38 this month</em>
+      </div>
+      <div class="float-card c2">
+        <small>Conversion rate</small>
+        <b class="big">11.4%</b>
+        <em class="up">▲ 2.9 pts</em>
+      </div>
+      <div class="listing-card">
+        <div class="lc-top"><span class="chip">Optimizing…</span><span class="tiny" id="heroStatus">Reading 1,284 reviews</span></div>
+        <div class="lc-img"><svg viewBox="0 0 120 120"><rect x="38" y="14" width="44" height="14" rx="4" fill="#c7d2fe"/><rect x="30" y="26" width="60" height="84" rx="14" fill="#6366f1"/><rect x="38" y="44" width="44" height="34" rx="8" fill="#a5b4fc"/><circle cx="60" cy="61" r="9" fill="#fff"/></svg></div>
+        <div class="lc-label">Title</div>
+        <div class="diff"><s>Water Bottle Steel 32oz</s><span id="heroTitle"></span></div>
+        <div class="lc-bars"><i></i><i></i><i></i></div>
+      </div>
+    </div>
+  </div>
+  <div class="wrap trust">
+    <p>Trusted by 2,400+ sellers, brands and agencies</p>
+    <div class="logos"><span>NORTHPEAK</span><span>Bloomwell</span><span>KINDLEAF</span><span>Orbit&amp;Co</span><span>Hearth Labs</span><span>PACKRAT</span></div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="stats">
+  <div class="wrap stat-grid">
+    <div><b data-count="31" data-suffix="%">0</b><span>average lift in listing conversion</span></div>
+    <div><b data-count="4.2" data-dec="1" data-suffix="M">0</b><span>reviews analyzed every week</span></div>
+    <div><b data-count="18" data-suffix=" min">0</b><span>to onboard 100 listings</span></div>
+    <div><b data-count="96" data-suffix="%">0</b><span>of rewrites approved as-is</span></div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="section" id="product">
+  <div class="wrap">
+    <div class="head"><span class="eyebrow">The product</span><h2>One agent. The whole listing loop.</h2><p>From audit to rewrite to measurement — Listwise closes the loop that most sellers only run once a year.</p></div>
+    <div class="feat-grid">
+      <article class="feat"><div class="ico">🔎</div><h3>Listing audit</h3><p>Scores titles, bullets, descriptions, images and specs against marketplace rules and category best practice.</p></article>
+      <article class="feat"><div class="ico">🧩</div><h3>Gap detection</h3><p>Finds missing attributes, thin copy, unanswered buyer questions and keyword blind spots.</p></article>
+      <article class="feat"><div class="ico">💬</div><h3>Review mining</h3><p>Clusters thousands of reviews into recurring complaints and praise, then feeds them back into your copy.</p></article>
+      <article class="feat"><div class="ico">🏁</div><h3>Competitor radar</h3><p>Tracks rival pricing, positioning claims, rating shifts and new launches in your niche.</p></article>
+      <article class="feat"><div class="ico">📈</div><h3>Search trends</h3><p>Surfaces rising queries and seasonal demand so your keywords lead the market, not trail it.</p></article>
+      <article class="feat"><div class="ico">✍️</div><h3>Rewrite engine</h3><p>Generates titles, descriptions and highlights in your brand voice — compliant with Amazon and Shopify policies.</p></article>
+    </div>
+  </div>
+</section>
+
+<!-- LIVE DEMO -->
+<section class="section tint" id="demo">
+  <div class="wrap">
+    <div class="head"><span class="eyebrow">Live demo</span><h2>Watch Listwise optimize a listing</h2><p>Pick a sample product and run the agent. This is exactly what you'll see inside your workspace.</p></div>
+
+    <div class="demo">
+      <aside class="demo-side">
+        <h4>Choose a product</h4>
+        <div class="samples" id="samples"></div>
+        <button class="btn primary block" id="runBtn">Run analysis</button>
+        <p class="tiny muted">Takes about 8 seconds.</p>
+      </aside>
+      <div class="demo-main">
+        <div class="empty" id="demoEmpty">
+          <div class="spark">✨</div>
+          <h3>Ready when you are</h3>
+          <p>Select a product and press <b>Run analysis</b>.</p>
+        </div>
+        <div class="progress" id="progress" hidden>
+          <h3 id="progTitle">Working…</h3>
+          <ol id="steps"></ol>
+          <div class="bar"><i id="bar"></i></div>
+        </div>
+        <div class="results" id="results" hidden>
+          <div class="tabs" role="tablist" id="tabs">
+            <button class="on" data-tab="audit">Audit</button>
+            <button data-tab="reviews">Reviews</button>
+            <button data-tab="market">Market</button>
+            <button data-tab="rewrite">Rewrite</button>
+          </div>
+          <div class="pane on" id="p-audit"></div>
+          <div class="pane" id="p-reviews"></div>
+          <div class="pane" id="p-market"></div>
+          <div class="pane" id="p-rewrite"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW -->
+<section class="section">
+  <div class="wrap">
+    <div class="head"><span class="eyebrow">How it works</span><h2>Connect once. Improve forever.</h2></div>
+    <div class="steps-row">
+      <div class="st"><span>1</span><h3>Connect your store</h3><p>One-click Amazon Seller Central, Shopify or CSV import.</p></div>
+      <div class="st"><span>2</span><h3>Agent analyzes</h3><p>Audits content, reads reviews and scans competitors &amp; trends.</p></div>
+      <div class="st"><span>3</span><h3>Approve rewrites</h3><p>Review side-by-side suggestions, edit, then publish in one click.</p></div>
+      <div class="st"><span>4</span><h3>Measure &amp; repeat</h3><p>Track impact on traffic and conversion; the agent proposes the next win.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- DASHBOARD -->
+<section class="section dark" id="dashboard">
+  <div class="wrap">
+    <div class="head light"><span class="eyebrow">Performance tracking</span><h2>See what every change is worth</h2><p>Every rewrite is annotated on your performance timeline, so you know exactly what moved the needle.</p></div>
+    <div class="dash">
+      <div class="dash-top">
+        <div class="seg" id="range"><button data-r="7">7D</button><button class="on" data-r="30">30D</button><button data-r="90">90D</button></div>
+        <div class="seg" id="metric"><button class="on" data-m="sessions">Sessions</button><button data-m="conv">Conversion</button><button data-m="revenue">Revenue</button></div>
+      </div>
+      <div class="kpis" id="kpis"></div>
+      <div class="chart-wrap"><svg id="chart" viewBox="0 0 800 260" preserveAspectRatio="none"></svg><div class="tip" id="tip" hidden></div></div>
+      <div class="recs">
+        <h4>Recommended next actions</h4>
+        <div id="recList"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="section">
+  <div class="wrap">
+    <div class="head"><span class="eyebrow">Customers</span><h2>Loved by sellers and agencies</h2></div>
+    <div class="quotes">
+      <figure><blockquote>“We refreshed 340 SKUs in an afternoon. Conversion on our top 20 listings is up 27% in six weeks.”</blockquote><figcaption><i>MR</i><div><b>Maya Reyes</b><span>Founder, Bloomwell</span></div></figcaption></figure>
+      <figure><blockquote>“The review insights alone paid for it. We fixed a sizing complaint nobody on our team had spotted.”</blockquote><figcaption><i>DK</i><div><b>Daniel Kim</b><span>Head of Ecom, Northpeak</span></div></figcaption></figure>
+      <figure><blockquote>“Our agency runs 60 client catalogs through Listwise. It's like adding a team of five copywriters.”</blockquote><figcaption><i>SA</i><div><b>Sara Alvi</b><span>Director, Orbit&amp;Co</span></div></figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="section tint" id="pricing">
+  <div class="wrap">
+    <div class="head"><span class="eyebrow">Pricing</span><h2>Pay for the listings you optimize</h2><p>Simple monthly pricing that scales with your catalog.</p></div>
+    <div class="price-ctl">
+      <div class="seg" id="bill"><button class="on" data-b="m">Monthly</button><button data-b="y">Yearly <em>-20%</em></button></div>
+      <label class="slider"><span>Listings: <b id="lcount">100</b></span><input type="range" id="lrange" min="10" max="2000" step="10" value="100"></label>
+    </div>
+    <div class="plans" id="plans"></div>
+    <p class="tiny muted center">Prices in USD. Cancel anytime. Volume above 2,000 listings? <a href="#" data-open="sales">Talk to sales</a>.</p>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section" id="faq">
+  <div class="wrap narrow">
+    <div class="head"><span class="eyebrow">FAQ</span><h2>Questions, answered</h2></div>
+    <div class="faq">
+      <details><summary>Will Listwise publish changes without my approval?</summary><p>Never by default. Every rewrite goes to an approval queue. You can enable auto-publish per listing for low-risk updates.</p></details>
+      <details><summary>Which marketplaces are supported?</summary><p>Amazon (US, UK, EU, IN), Shopify, WooCommerce and CSV import for everything else.</p></details>
+      <details><summary>How does it use customer reviews?</summary><p>Reviews are clustered into themes — complaints, praise and unanswered questions — and turned into copy fixes, FAQ entries and product feedback.</p></details>
+      <details><summary>Is the generated copy policy-compliant?</summary><p>Yes. Rewrites are checked against marketplace style rules, banned claims and character limits before they reach you.</p></details>
+      <details><summary>Can agencies manage multiple clients?</summary><p>The Scale plan includes unlimited workspaces, white-label reports and role-based access.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+  <div class="wrap">
+    <h2>Your next best listing is one click away.</h2>
+    <p>Join thousands of sellers who let an agent do the optimizing.</p>
+    <button class="btn light lg" data-open="trial">Start free trial</button>
+  </div>
+</section>
+</main>
+
+<footer class="foot">
+  <div class="wrap foot-in">
+    <div><a href="#top" class="brand"><span class="logo"><svg viewBox="0 0 32 32" width="22" height="22"><path d="M9 17l5 5 9-12" stroke="#fff" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Listwise</a><p class="muted tiny">AI listing optimization for modern commerce.</p></div>
+    <div><h5>Product</h5><a href="#product">Features</a><a href="#demo">Live demo</a><a href="#pricing">Pricing</a></div>
+    <div><h5>Company</h5><a href="#" data-open="sales">Contact</a><a href="#" data-open="sales">Careers</a><a href="#" data-open="sales">Press</a></div>
+    <div><h5>Legal</h5><a href="#" data-open="legal">Privacy</a><a href="#" data-open="legal">Terms</a><a href="#" data-open="legal">Security</a></div>
+  </div>
+  <div class="wrap copy tiny muted">© 2026 Listwise, Inc. All rights reserved.</div>
+</footer>
+
+<!-- MODAL -->
+<div class="modal" id="modal" hidden>
+  <div class="card" role="dialog" aria-modal="true">
+    <button class="x" id="mx" aria-label="Close">×</button>
+    <div id="mbody"></div>
+  </div>
+</div>
+<div class="toast" id="toast" hidden></div>
+
+<script src="app.js"></script>
+</body>
+</html>
