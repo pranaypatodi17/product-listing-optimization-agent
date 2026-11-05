@@ -13,66 +13,93 @@
 <div class="shell">
   <aside class="side" id="side">
     <a href="workspace.html" class="brand"><span class="logo"><svg viewBox="0 0 32 32" width="22" height="22"><path d="M9 17l5 5 9-12" stroke="#fff" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Listwise</a>
+    <div class="store"><span class="sdot"></span><div><b>Demo Store</b><small>Amazon · Shopify</small></div></div>
     <nav id="menu">
-      <button class="on" data-v="overview">📊 Overview</button>
-      <button data-v="listings">📦 Listings</button>
-      <button data-v="insights">💡 Insights</button>
-      <button data-v="queue">✅ Approval queue <em id="qbadge">0</em></button>
-      <button data-v="settings">⚙️ Settings</button>
+      <small class="grp">Workspace</small>
+      <button class="on" data-v="overview"><i data-ic="grid"></i>Overview</button>
+      <button data-v="listings"><i data-ic="box"></i>Listings</button>
+      <button data-v="insights"><i data-ic="bulb"></i>Insights</button>
+      <button data-v="queue"><i data-ic="check"></i>Approval queue <em id="qbadge">0</em></button>
+      <small class="grp">Account</small>
+      <button data-v="settings"><i data-ic="sliders"></i>Settings</button>
     </nav>
     <div class="side-foot">
-      <div class="trial"><b id="trialDays">14 days left</b><span>on your free trial</span><i><u style="width:7%"></u></i><button class="btn primary block" id="upg">Upgrade plan</button></div>
-      <a href="index.html" class="back">← Back to website</a>
+      <div class="trial"><div class="trow"><b id="trialDays">14 days left</b><i data-ic="bolt"></i></div><span>Free trial · Growth plan</span><div class="tbar"><u></u></div><button class="btn primary block" id="upg">Upgrade plan</button></div>
+      <a href="index.html" class="back"><i data-ic="back"></i>Back to website</a>
     </div>
   </aside>
 
   <div class="main">
     <header class="top">
       <button class="burger" id="sb" aria-label="Menu"><span></span><span></span></button>
-      <h1 id="vt">Overview</h1>
+      <div class="crumb"><small>Listwise</small><h1 id="vt">Overview</h1></div>
       <div class="top-r">
-        <button class="btn out" id="syncBtn">⟳ Sync store</button>
-        <div class="user" id="user"><i id="av">U</i><span id="em"></span><div class="dd" id="dd" hidden><button id="out">Sign out</button></div></div>
+        <span class="live"><i></i>Agent active</span>
+        <button class="btn out" id="syncBtn"><i data-ic="refresh"></i>Sync store</button>
+        <div class="user" id="user"><i id="av">U</i><span id="em"></span><div class="dd" id="dd" hidden><button id="out"><i data-ic="logout"></i>Sign out</button></div></div>
       </div>
     </header>
 
+    <!-- OVERVIEW -->
     <section class="view on" id="v-overview">
-      <div class="welcome" id="welcome">
-        <div><h2>Welcome to Listwise 👋</h2><p>We loaded a sample catalog so you can explore. Optimize a listing to see it in action.</p></div>
-        <div class="wbtns"><button class="btn light" id="tour">Optimize first listing</button><button class="x2" id="wx" aria-label="Dismiss">×</button></div>
+      <div class="hello">
+        <div><h2 id="greet">Good afternoon</h2><p id="sub"></p></div>
+        <button class="btn primary" id="tour"><i data-ic="sparkles"></i>Optimize top opportunity</button>
       </div>
       <div class="kpis" id="kpis"></div>
-      <div class="two">
-        <div class="panel"><div class="ph"><h3>Sessions &amp; conversion</h3><div class="seg" id="rng"><button data-r="7">7D</button><button class="on" data-r="30">30D</button></div></div><div class="chart-wrap" style="height:240px"><svg id="chart" viewBox="0 0 800 240" preserveAspectRatio="none"></svg></div></div>
-        <div class="panel"><div class="ph"><h3>Next best actions</h3></div><div id="next"></div></div>
+      <div class="grid2">
+        <div class="panel">
+          <div class="ph"><div><h3>Performance</h3><small>Published changes are marked on the timeline</small></div>
+            <div class="ctl"><div class="seg" id="mt"><button class="on" data-m="revenue">Revenue</button><button data-m="sessions">Sessions</button><button data-m="conv">Conversion</button></div><div class="seg" id="rng"><button data-r="7">7D</button><button class="on" data-r="30">30D</button><button data-r="90">90D</button></div></div></div>
+          <div class="chart-wrap" style="height:260px"><svg id="chart" viewBox="0 0 800 260" preserveAspectRatio="none"></svg><div class="tip" id="tip" hidden></div></div>
+        </div>
+        <div class="panel">
+          <div class="ph"><h3>Catalog health</h3><small id="hcount"></small></div>
+          <div class="donut-row"><div class="donut" id="donut"><b id="davg">0</b><small>avg score</small></div><ul class="legend" id="legend"></ul></div>
+          <div class="ph" style="margin-top:20px"><h3>Agent activity</h3></div>
+          <div class="feed" id="feed"></div>
+        </div>
+      </div>
+      <div class="grid2 b">
+        <div class="panel flush"><div class="ph pad"><div><h3>Top opportunities</h3><small>Ranked by estimated monthly revenue impact</small></div><button class="btn out sm" data-go="listings">View all</button></div><div id="opps"></div></div>
+        <div class="panel"><div class="ph"><div><h3>Recent wins</h3><small>Before vs. after publishing</small></div></div><div id="wins"></div></div>
       </div>
     </section>
 
+    <!-- LISTINGS -->
     <section class="view" id="v-listings">
-      <div class="toolbar"><input id="q" placeholder="Search listings…"><select id="flt"><option value="all">All</option><option value="low">Needs work (&lt;60)</option><option value="done">Optimized</option></select><button class="btn primary" id="optAll">Optimize all low-score</button></div>
-      <div class="panel flush"><table class="tbl"><thead><tr><th>Product</th><th>Channel</th><th>Score</th><th>Status</th><th></th></tr></thead><tbody id="rows"></tbody></table></div>
+      <div class="toolbar"><div class="sbox"><i data-ic="search"></i><input id="q" placeholder="Search listings or SKU…"></div>
+        <div class="seg" id="flt"><button class="on" data-f="all">All</button><button data-f="todo">Needs work</button><button data-f="pend">In queue</button><button data-f="ok">Optimized</button></div>
+        <button class="btn primary" id="optAll"><i data-ic="sparkles"></i>Optimize all low-score</button></div>
+      <div class="panel flush"><div class="tw"><table class="tbl"><thead><tr><th>Product</th><th>Channel</th><th>Health</th><th>Top issue</th><th>Est. impact</th><th>Status</th><th></th></tr></thead><tbody id="rows"></tbody></table></div></div>
     </section>
 
+    <!-- INSIGHTS -->
     <section class="view" id="v-insights">
-      <div class="two">
-        <div class="panel"><div class="ph"><h3>Top customer complaints</h3></div><div id="complaints" class="themes"></div></div>
-        <div class="panel"><div class="ph"><h3>Rising search terms</h3></div><div id="trends" class="kws"></div><div class="ph" style="margin-top:22px"><h3>Competitor moves</h3></div><div id="moves"></div></div>
+      <div class="kpis k3" id="ikpis"></div>
+      <div class="grid2">
+        <div class="panel"><div class="ph"><div><h3>What customers complain about</h3><small>Clustered from 4,812 reviews</small></div></div><div id="complaints"></div></div>
+        <div class="panel"><div class="ph"><div><h3>Competitor tracker</h3><small>Last 7 days</small></div></div><div id="comps"></div></div>
       </div>
+      <div class="panel flush" style="margin-top:20px"><div class="ph pad"><div><h3>Keyword opportunities</h3><small>Rising search terms where you are not yet ranking</small></div></div><div class="tw"><table class="tbl"><thead><tr><th>Keyword</th><th>Monthly searches</th><th>Trend</th><th>Competition</th><th>Your coverage</th><th></th></tr></thead><tbody id="kwrows"></tbody></table></div></div>
     </section>
 
-    <section class="view" id="v-queue">
-      <div id="queueList"></div>
-    </section>
+    <!-- QUEUE -->
+    <section class="view" id="v-queue"><div id="queueList"></div></section>
 
+    <!-- SETTINGS -->
     <section class="view" id="v-settings">
-      <div class="panel" style="max-width:640px">
-        <div class="ph"><h3>Connections</h3></div>
-        <div class="conn"><span>🛒 Amazon Seller Central</span><button class="btn out" data-c="Amazon">Connect</button></div>
-        <div class="conn"><span>🛍️ Shopify</span><button class="btn out" data-c="Shopify">Connect</button></div>
-        <div class="conn"><span>🧾 CSV import</span><button class="btn out" data-c="CSV">Upload</button></div>
-        <div class="ph" style="margin-top:24px"><h3>Preferences</h3></div>
-        <label class="tg"><input type="checkbox" id="auto"> Weekly auto-optimization (requires approval)</label>
-        <label class="tg"><input type="checkbox" id="mail" checked> Email me when new insights are found</label>
+      <div class="grid2 b2">
+        <div class="panel"><div class="ph"><h3>Store connections</h3></div>
+          <div class="conn"><span class="ci amz">A</span><div><b>Amazon Seller Central</b><small>US marketplace</small></div><button class="btn out sm" data-c="Amazon">Connect</button></div>
+          <div class="conn"><span class="ci shp">S</span><div><b>Shopify</b><small>demo-store.myshopify.com</small></div><button class="btn out sm" data-c="Shopify">Connect</button></div>
+          <div class="conn"><span class="ci csv"><i data-ic="upload"></i></span><div><b>CSV import</b><small>Any other marketplace</small></div><button class="btn out sm" data-c="CSV">Upload</button></div>
+        </div>
+        <div class="panel"><div class="ph"><h3>Agent preferences</h3></div>
+          <label class="tg"><input type="checkbox" id="auto"><div><b>Weekly auto-optimization</b><small>Agent drafts rewrites every Monday. You still approve.</small></div></label>
+          <label class="tg"><input type="checkbox" id="mail" checked><div><b>Email me about new insights</b><small>Competitor moves and trend spikes.</small></div></label>
+          <label class="tg"><input type="checkbox" id="voice" checked><div><b>Keep my brand voice</b><small>Learns tone from your best-performing listings.</small></div></label>
+        </div>
       </div>
     </section>
   </div>
