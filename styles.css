@@ -267,3 +267,5 @@ figcaption b{display:block;font-size:.9rem}figcaption span{font-size:.8rem;color
   .section{padding:68px 0}
   .demo-main{padding:18px}
 }
+
+.or{display:flex;align-items:center;gap:10px;color:var(--mut);font-size:.78rem}.or:before,.or:after{content:"";flex:1;height:1px;background:var(--line)}

@@ -17,9 +17,15 @@ function closeModal(){modal.hidden=true;document.body.style.overflow=''}
 $('#mx').onclick=closeModal;modal.onclick=e=>{if(e.target===modal)closeModal()};
 addEventListener('keydown',e=>{if(e.key==='Escape')closeModal()});
 function success(title,msg){mbody.innerHTML=`<div class="ok-ico">✓</div><h3>${title}</h3><p>${msg}</p><button class="btn primary block" id="okb">Done</button>`;$('#okb').onclick=closeModal}
+
+function enter(email,demo){
+  try{localStorage.setItem('lw_session',JSON.stringify({email:email||'demo@listwise.app',at:Date.now(),demo:!!demo}))}catch(e){}
+  mbody.innerHTML='<div class="ok-ico">✓</div><h3>'+(demo?'Opening demo workspace…':'Workspace ready!')+'</h3><p>Taking you to your dashboard…</p><button class="btn primary block" id="okb">Go now</button>';
+  const go=()=>{location.href='workspace.html'};$('#okb').onclick=go;setTimeout(go,1200)}
+document.addEventListener('click',e=>{if(e.target.closest('[data-demo]')){e.preventDefault();enter('',true)}});
 const forms={
- trial:()=>`<h3>Start your 14-day free trial</h3><p>No credit card required. Set up in minutes.</p><form id="f"><label>Work email<input type="email" name="e" required placeholder="you@brand.com"></label><label>Store platform<select><option>Amazon</option><option>Shopify</option><option>WooCommerce</option><option>Agency (multiple)</option></select></label><label>Number of listings<select><option>1–50</option><option>51–250</option><option>251–1,000</option><option>1,000+</option></select></label><button class="btn primary block">Create my workspace</button></form>`,
- signin:()=>`<h3>Welcome back</h3><p>Sign in to your Listwise workspace.</p><form id="f"><label>Email<input type="email" required></label><label>Password<input type="password" required minlength="6"></label><button class="btn primary block">Sign in</button></form>`,
+ trial:()=>`<h3>Start your 14-day free trial</h3><p>No credit card required. Set up in minutes.</p><form id="f"><label>Work email<input type="email" name="e" required placeholder="you@brand.com"></label><label>Store platform<select><option>Amazon</option><option>Shopify</option><option>WooCommerce</option><option>Agency (multiple)</option></select></label><label>Number of listings<select><option>1–50</option><option>51–250</option><option>251–1,000</option><option>1,000+</option></select></label><button class="btn primary block">Create my workspace</button><div class="or"><span>or</span></div><button type="button" class="btn out block" data-demo>▶ Explore the demo workspace</button></form>`,
+ signin:()=>`<h3>Welcome back</h3><p>Sign in to your Listwise workspace.</p><form id="f"><label>Email<input type="email" required></label><label>Password<input type="password" required minlength="6"></label><button class="btn primary block">Sign in</button><div class="or"><span>or</span></div><button type="button" class="btn out block" data-demo>▶ Explore the demo workspace</button></form>`,
  sales:()=>`<h3>Talk to our team</h3><p>Tell us about your catalog and we'll be in touch within one business day.</p><form id="f"><label>Name<input required></label><label>Email<input type="email" required></label><label>How can we help?<textarea rows="3"></textarea></label><button class="btn primary block">Send message</button></form>`,
  legal:()=>`<h3>Legal &amp; security</h3><p>Listwise is SOC 2 Type II compliant, encrypts all data in transit and at rest, and never trains models on your private store data. Full documents are available on request.</p><button class="btn primary block" id="okb">Got it</button>`
 };
@@ -27,7 +33,7 @@ const done={trial:['You\'re in! 🎉','Check your inbox — your workspace is be
 document.addEventListener('click',e=>{
   const b=e.target.closest('[data-open]');if(!b)return;e.preventDefault();
   const k=b.dataset.open;openModal(forms[k]());
-  const f=$('#f');if(f)f.onsubmit=ev=>{ev.preventDefault();const btn=$('button',f);btn.textContent='Please wait…';btn.disabled=true;setTimeout(()=>success(...done[k]),700)};
+  const f=$('#f');if(f)f.onsubmit=ev=>{ev.preventDefault();const btn=$('button',f);btn.textContent='Please wait…';btn.disabled=true;if(k==='trial'||k==='signin'){const em=($('input[type=email]',f).value||'').trim();setTimeout(()=>enter(em),700)}else setTimeout(()=>success(...done[k]),700)};
   const ok=$('#okb');if(ok)ok.onclick=closeModal;
 });
 
